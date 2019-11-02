@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Providers;
-use Illuminate\Support\Facades\Schema;
 
+use Laravel\Passport\Passport;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -14,7 +15,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'App\Model' => 'App\Policies\ModelPolicy',
+         'App\Model' => 'App\Policies\ModelPolicy',
     ];
 
     /**
@@ -26,7 +27,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
         Schema::defaultStringLength(191);
-
+        Passport::routes();
         //
     }
 }

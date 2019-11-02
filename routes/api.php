@@ -13,24 +13,30 @@ use Illuminate\Http\Request;
 |
 */
 
-// Route::get('/ok', function(){
-//     return ['Status => ' => true];
-// });
+Route::get('/ok', function(){
+    return ['Status => ' => true];
+});
+
+Route::get('annotation', 'AnnotationController@index');
+Route::get('annotation/{id}', 'AnnotationController@show');
+Route::post('annotation', 'AnnotationController@store');
+Route::put('annotation/{id}', 'AnnotationController@update');
+Route::delete('annotation/{id}', 'AnnotationController@destroy');
   
 // Route::middleware('auth:api')->group( function () {
-//     Route::resource('annotation', 'AnnotationController');
-//     Route::get('/ok', function(){
-//         return ['status' => true];
-//     });
+//     Route::get('annotation', 'AnnotationController@index');
+//     Route::get('annotation/{id}', 'AnnotationController@show');
+//     Route::post('annotation', 'AnnotationController@store');
+//     Route::put('annotation/{id}', 'AnnotationController@update');
+//     Route::delete('annotation/{id}', 'AnnotationController@destroy');
 // });
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return ['status' => true];
-});
-Route::resource('annotation', 'AnnotationController');
-    Route::get('ok', function(){
-        return ['statuss' => true];
-    });
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return ['status' => true];
+//     return ['status' => true];
+// });
+
 
 
 
