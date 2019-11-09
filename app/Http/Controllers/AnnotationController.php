@@ -14,7 +14,6 @@ class AnnotationController extends Controller
               'msg' => 'Record not found',
            ],404);
         }
-        //return response()->json($Annotation);
         return response()->json([
             "annotations" => $Annotations,  
             "result" => 1, 
@@ -45,22 +44,7 @@ class AnnotationController extends Controller
     }
 
     public function update($id, Request $request){
-   //    if (Annotation::where('id', $id)->exists()) {
-   //       $annotation = Annotation::find($id);
-   //       $annotation->titulo = is_null($request->titulo) ? $annotation->titulo : $request->titulo;
-   //       $annotation->message = is_null($request->message) ? $annotation->message : $request->message;
-   //       $annotation->save();
- 
-   //       return response()->json([
-   //          "annotation" => $request->all(),
-   //           "msg" => "records updated successfully"
-   //       ], 200);
-   //       } else {
-   //       return response()->json([
-   //           "msg" => "Student not found"
-   //       ], 404);
-         
-   //   }
+   
       $Annotation = Annotation::find($id);
    
       if(!$Annotation) {
@@ -68,7 +52,6 @@ class AnnotationController extends Controller
             'msg' => 'Record not found',
          ], 404);
       }
-      // $Annotation->update($request->all());
       $Annotation->fill($request->all());
       $Annotation->save();
 
